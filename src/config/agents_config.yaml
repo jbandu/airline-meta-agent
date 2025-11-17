@@ -1,0 +1,132 @@
+agents:
+  baggage_operations:
+    baggage_tracker_agent:
+      url: "http://localhost:8001"
+      capabilities:
+        - "track"
+        - "locate"
+      description: "Tracks and locates baggage in real-time"
+      health_check_endpoint: "/health"
+      timeout: 30
+      retry_count: 3
+
+    risk_assessment_agent:
+      url: "http://localhost:8002"
+      capabilities:
+        - "risk_analysis"
+      description: "Analyzes risks for baggage operations"
+      health_check_endpoint: "/health"
+      timeout: 30
+      retry_count: 3
+
+    exception_management_agent:
+      url: "http://localhost:8003"
+      capabilities:
+        - "exceptions"
+      description: "Manages baggage exceptions and irregularities"
+      health_check_endpoint: "/health"
+      timeout: 30
+      retry_count: 3
+
+    connection_protection_agent:
+      url: "http://localhost:8004"
+      capabilities:
+        - "connections"
+      description: "Protects passenger connections for baggage transfers"
+      health_check_endpoint: "/health"
+      timeout: 30
+      retry_count: 3
+
+    recovery_orchestration_agent:
+      url: "http://localhost:8005"
+      capabilities:
+        - "recovery"
+      description: "Orchestrates baggage recovery operations"
+      health_check_endpoint: "/health"
+      timeout: 30
+      retry_count: 3
+
+    communication_agent:
+      url: "http://localhost:8006"
+      capabilities:
+        - "notifications"
+      description: "Sends notifications to passengers and staff"
+      health_check_endpoint: "/health"
+      timeout: 30
+      retry_count: 3
+
+    analytics_agent:
+      url: "http://localhost:8007"
+      capabilities:
+        - "analytics"
+      description: "Provides analytics and insights on baggage operations"
+      health_check_endpoint: "/health"
+      timeout: 30
+      retry_count: 3
+
+    compliance_agent:
+      url: "http://localhost:8008"
+      capabilities:
+        - "compliance"
+      description: "Ensures compliance with airline regulations"
+      health_check_endpoint: "/health"
+      timeout: 30
+      retry_count: 3
+
+  crew_operations:
+    crew_pay_validator:
+      url: "http://localhost:8101"
+      capabilities:
+        - "pay_validation"
+      description: "Validates crew pay calculations"
+      health_check_endpoint: "/health"
+      timeout: 30
+      retry_count: 3
+
+    schedule_analyzer:
+      url: "http://localhost:8102"
+      capabilities:
+        - "schedule_analysis"
+      description: "Analyzes crew schedules and availability"
+      health_check_endpoint: "/health"
+      timeout: 30
+      retry_count: 3
+
+# Routing configuration
+routing:
+  intent_classification:
+    model: "claude-3-5-sonnet-20241022"
+    temperature: 0.1
+    max_tokens: 500
+
+  semantic_similarity:
+    threshold: 0.7
+
+  circuit_breaker:
+    failure_threshold: 5
+    timeout: 60
+    expected_exception: "Exception"
+
+# Context management
+context:
+  redis:
+    host: "localhost"
+    port: 6379
+    db: 0
+    ttl: 3600  # 1 hour
+
+  postgres:
+    host: "localhost"
+    port: 5432
+    database: "airline_orchestrator"
+
+# Rate limiting
+rate_limiting:
+  default_limit: "100/minute"
+  per_agent_limit: "50/minute"
+
+# Monitoring
+monitoring:
+  prometheus_port: 9090
+  health_check_interval: 30
+  log_level: "INFO"
