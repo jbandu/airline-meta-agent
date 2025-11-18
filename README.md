@@ -2,6 +2,10 @@
 
 Production-ready orchestrator for managing and coordinating specialized airline domain agents using FastAPI, LangGraph, and Claude AI.
 
+> **📦 Deployment Branch**: `claude/airline-meta-agent-orchestrator-01BdVtd7nhkBpVdK6d45i8N1`
+> **🏷️ Latest Release**: v1.0.0
+> **📖 Deployment Guide**: See [DEPLOYMENT.md](DEPLOYMENT.md) for merge and deployment instructions
+
 ## Overview
 
 The Airline Meta Agent Orchestrator is a sophisticated microservice that intelligently routes requests to specialized agents across different airline domains (baggage operations, crew management, etc.). It uses LLM-based intent classification, maintains conversation context, and provides comprehensive monitoring.
@@ -76,6 +80,7 @@ airline-meta-agent/
 ```bash
 git clone <repository-url>
 cd airline-meta-agent
+git checkout claude/airline-meta-agent-orchestrator-01BdVtd7nhkBpVdK6d45i8N1
 ```
 
 2. **Create environment file**
